@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -30,8 +31,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
         <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-pulse" />
-          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-white/50 rounded-full animate-pulse delay-1000" />
+          {/* <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-pulse" /> */}
+          <div className="absolute top-1/3  right-1/3 w-1 h-1 bg-white/50 rounded-full animate-pulse delay-1000" />
           <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white/70 rounded-full animate-pulse delay-500" />
           <div className="absolute bottom-1/4 right-1/4 w-1 h-1 bg-white/40 rounded-full animate-pulse delay-1500" />
         </div>
@@ -84,10 +85,10 @@ export function HeroSection() {
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, delay: 0.1 }}
           >
-            <div className="w-20 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto" />
+            <div className="w-20 h-1 bg-gradient-to-r from-transparent via-white  to-transparent mx-auto" />
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter uppercase mb-6 leading-none">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tighter mt-32 uppercase  mb-6 leading-none">
             <motion.span
               className="block gradient-text"
               initial={{ opacity: 0, y: 50 }}
@@ -130,27 +131,31 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
-          <motion.button
-            className="px-8 py-4 bg-white text-black font-semibold tracking-wider uppercase relative overflow-hidden group text-sm md:text-base"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Explore Our Work</span>
-            <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-zinc-800 to-zinc-900"
-              initial={{ x: '-100%' }}
-              whileHover={{ x: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </motion.button>
+          <Link to="/projects">
+            <motion.button
+              className="px-8 py-4 bg-white text-black font-semibold tracking-wider uppercase relative overflow-hidden group text-sm md:text-base"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10">Explore Our Work</span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-zinc-800 to-zinc-900"
+                initial={{ x: '-100%' }}
+                whileHover={{ x: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.button>
+          </Link>
 
-          <motion.button
-            className="px-8 py-4 border border-white/30 text-white font-semibold tracking-wider uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm md:text-base"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get In Touch
-          </motion.button>
+          <Link to="/contact">
+            <motion.button
+              className="px-8 py-4 border border-white/30 text-white font-semibold tracking-wider uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm md:text-base"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get In Touch
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 

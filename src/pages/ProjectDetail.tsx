@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   ArrowLeft,
@@ -18,6 +18,8 @@ export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug!);
   const sectionRef = useRef<HTMLElement>(null);
+  const location = useLocation() as { state?: { from?: 'home' | 'projects' } };
+  const backTo = location.state?.from === 'projects' ? '/projects' : '/#work';
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -69,7 +71,7 @@ export function ProjectDetail() {
       {/* Back Button */}
       <div className="fixed top-6 left-4 md:left-10 z-50">
         <Link
-          to="/"
+          to={backTo}
           className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm md:text-base"
         >
           <ArrowLeft className="w-5 h-5" />

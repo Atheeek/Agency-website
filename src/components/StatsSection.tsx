@@ -56,25 +56,13 @@ function AnimatedCounter({ end, duration = 2, suffix = '', label, delay = 0 }: S
         <motion.div className="mb-6 relative inline-block">
           <motion.div
             className="absolute -inset-4 border border-white/20"
-            animate={{
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
           />
           <motion.div
             className="absolute -inset-8 border border-white/10"
-            animate={{
-              rotate: [0, -360],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
+            animate={{ rotate: [0, -360] }}
+            transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
           />
         </motion.div>
 
@@ -91,11 +79,7 @@ function AnimatedCounter({ end, duration = 2, suffix = '', label, delay = 0 }: S
                 }
               : {}
           }
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatDelay: 3,
-          }}
+          transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
         >
           {displayValue}
           {suffix}
@@ -105,7 +89,7 @@ function AnimatedCounter({ end, duration = 2, suffix = '', label, delay = 0 }: S
           className="h-px w-24 mx-auto bg-gradient-to-r from-transparent via-white to-transparent mb-4"
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: delay + 0.5 }}
+          transition={{ duration: 0.7, delay: delay + 0.3 }}
         />
 
         <p className="text-sm md:text-base tracking-[0.3em] text-gray-500 uppercase">
@@ -134,7 +118,7 @@ export function StatsSection() {
             y: [0, -50, 0],
           }}
           transition={{
-            duration: 10,
+            duration: 8,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
@@ -147,7 +131,7 @@ export function StatsSection() {
             y: [0, 50, 0],
           }}
           transition={{
-            duration: 12,
+            duration: 9,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
@@ -159,7 +143,7 @@ export function StatsSection() {
           className="text-center mb-20 px-4"
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
         >
           <span className="text-sm tracking-[0.3em] text-gray-500 uppercase">By The Numbers</span>
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mt-4">
@@ -169,16 +153,16 @@ export function StatsSection() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-16 max-w-6xl mx-auto px-4 md:px-0">
           <AnimatedCounter end={250} suffix="+" label="Projects Delivered" delay={0} />
-          <AnimatedCounter end={180} suffix="+" label="Happy Clients" delay={0.2} />
-          <AnimatedCounter end={47} label="Awards Won" delay={0.4} />
-          <AnimatedCounter end={98} suffix="%" label="Satisfaction Rate" delay={0.6} />
+          <AnimatedCounter end={180} suffix="+" label="Happy Clients" delay={0.1} />
+          <AnimatedCounter end={47} label="Awards Won" delay={0.2} />
+          <AnimatedCounter end={98} suffix="%" label="Satisfaction Rate" delay={0.3} />
         </div>
 
         <motion.div
-          className="mt-32 text-center"
+          className="mt-24 text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
           <motion.div
             className="inline-block relative"

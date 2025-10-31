@@ -37,7 +37,7 @@ export function ProjectsPage() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <Link to={`/project/${project.slug}`}>
+              <Link to={`/project/${project.slug}`} state={{ from: 'projects' }}>
                 <div className="relative aspect-video overflow-hidden">
                   <img 
                     src={project.image} 
