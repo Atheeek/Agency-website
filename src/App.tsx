@@ -11,7 +11,12 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { CustomCursor } from './components/CustomCursor';
 import { LoadingScreen } from './components/LoadingScreen';
+import { Navbar } from './components/Navbar';
 import { ProjectDetail } from './pages/ProjectDetail';
+import { AboutPage } from './pages/AboutPage';
+import { ServicesPage } from './pages/ServicesPage';
+import { ContactPage } from './pages/ContactPage';
+import { ProjectsPage } from './pages/ProjectsPage';
 
 function App() {
   useEffect(() => {
@@ -33,6 +38,7 @@ function App() {
       <div className="relative bg-black text-white overflow-x-hidden">
         <LoadingScreen />
         <CustomCursor />
+        {/* <Navbar /> */}
 
         <Routes>
           <Route path="/" element={
@@ -47,6 +53,10 @@ function App() {
               <ContactSection />
             </main>
           } />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/project/:slug" element={<ProjectDetail />} />
         </Routes>
 

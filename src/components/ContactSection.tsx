@@ -106,7 +106,7 @@ export function ContactSection() {
               whileTap={{ scale: 0.95 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-zinc-800 via-zinc-900 to-black"
+                className="absolute  inset-0 bg-gradient-to-r from-zinc-800 via-zinc-900 to-black"
                 initial={{ clipPath: 'circle(0% at 50% 50%)' }}
                 animate={{
                   clipPath: isHovered
@@ -116,7 +116,7 @@ export function ContactSection() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               />
 
-              <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-300">
+              <span className="relative z-10   flex items-center gap-3 group-hover:text-white transition-colors duration-300">
                 Start a Project
                 <motion.div
                   animate={{ x: isHovered ? 5 : 0 }}

@@ -83,15 +83,15 @@ export function AboutSection() {
               </h2>
             </div>
 
-            <div className="about-text-item space-y-6">
-              <p className="text-xl text-gray-400 leading-relaxed">
+            <div className="about-text-item  space-y-6">
+              <p className="text-xl mr-12 text-gray-400 leading-relaxed">
                 We are a collective of designers, developers, and storytellers obsessed with
                 creating digital products that don’t just look beautiful — they feel alive.
               </p>
             </div>
 
             <div className="about-text-item space-y-6">
-              <p className="text-lg text-gray-500 leading-relaxed">
+              <p className="text-lg  mr-12 text-gray-500 leading-relaxed">
                 Every project is a journey through motion, narrative, and interaction. We blend
                 cutting-edge technology with timeless design principles to craft experiences
                 that captivate and convert.

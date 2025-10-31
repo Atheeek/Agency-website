@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import { ArrowUp, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 const footerLinks = [
-  { label: 'Work', href: '#work' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Work', href: '/#work' },
+  { label: 'Services', href: '/services' },
+  { label: 'Projects', href: '/projects' },
+  { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const socialLinks = [
