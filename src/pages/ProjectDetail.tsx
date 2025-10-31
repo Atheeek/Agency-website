@@ -8,6 +8,7 @@ import {
   Building,
 } from "lucide-react";
 import { getProjectBySlug } from "../data/projects";
+import BackButton from "../components/BackButton";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -69,15 +70,7 @@ export function ProjectDetail() {
   return (
     <section ref={sectionRef} className="min-h-screen bg-black text-white">
       {/* Back Button */}
-      <div className="fixed top-6 left-4 md:left-10 z-50">
-        <Link
-          to={backTo}
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm md:text-base"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          Back
-        </Link>
-      </div>
+      <BackButton fallback={backTo} />
 
       {/* Hero Section */}
       <div className="relative h-[85vh] md:h-screen flex items-center justify-center overflow-hidden">

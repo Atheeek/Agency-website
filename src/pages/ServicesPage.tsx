@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { ServicesGrid } from '../components/ServicesGrid';
 import { ProcessTimeline } from '../components/ProcessTimeline';
+import BackButton from '../components/BackButton';
 
 export function ServicesPage() {
   useEffect(() => {
@@ -11,6 +12,7 @@ export function ServicesPage() {
 
   return (
     <main className="bg-black text-white">
+      <BackButton />
       {/* Hero Section */}
       {/* <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black">

@@ -12,8 +12,8 @@ export function AboutPage() {
   return (
     <main className="bg-black text-white">
       {/* Hero Section */}
-      <section className="min-h-[60vh] flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-900 to-black">
+      <section className="min-h-[10vh] mt-32 flex items-center justify-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-black ">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.05)_0%,transparent_70%)]" />
         </div>
         
@@ -43,10 +43,10 @@ export function AboutPage() {
       </section>
 
       {/* About Section */}
+      <TeamSection />
       <AboutSection />
 
       {/* Team Section */}
-      <TeamSection />
     </main>
   );
 }

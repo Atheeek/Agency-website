@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, Mail, MapPin, Phone } from 'lucide-react';
+import BackButton from '../components/BackButton';
 
 export function ContactPage() {
   // --- Logic from ContactSection ---
@@ -18,6 +19,7 @@ export function ContactPage() {
 
   return (
     <main className="bg-black text-white">
+      <BackButton />
       {/* The original Hero Section from ContactPage has been removed.
         We are now using the full ContactSection as the page's content.
       */}

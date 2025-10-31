@@ -1,10 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import BackButton from '../components/BackButton';
 
 export function ProjectsPage() {
   return (
     <div className="min-h-screen bg-black pt-24 pb-16">
+      <BackButton />
       {/* Hero Section */}
       <div className="container mx-auto px-4 mb-16">
         <motion.h1 

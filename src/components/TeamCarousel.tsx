@@ -248,85 +248,89 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
       )}
 
       {/* Card Container */}
-      <div
-        className="w-full max-w-6xl relative mt-20"
-        style={{
-          height: cardHeight + 100,
-          perspective: "1000px",
-        }}
+  <div
+  className="w-full max-w-6xl relative mt-20"
+  style={{
+    height: cardHeight + 100,
+    perspective: "1000px",
+  }}
+>
+  {showArrows && (
+    <>
+      <motion.button
+        onClick={() => paginate(-1)}
+        className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-20 transition-all duration-300 hover:scale-110"
+        whileTap={{ scale: 0.9 }}
       >
-        {showArrows && (
-          <>
-            <motion.button
-              onClick={() => paginate(-1)}
-              className="absolute left-5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-20 transition-all duration-300 hover:scale-110"
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </motion.button>
-            <motion.button
-              onClick={() => paginate(1)}
-              className="absolute right-5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-20 transition-all duration-300 hover:scale-110"
-              whileTap={{ scale: 0.9 }}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </motion.button>
-          </>
-        )}
+        <ChevronLeft className="w-6 h-6" />
+      </motion.button>
+      <motion.button
+        onClick={() => paginate(1)}
+        className="absolute right-5 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-10 h-10 rounded-full flex items-center justify-center z-20 transition-all duration-300 hover:scale-110"
+        whileTap={{ scale: 0.9 }}
+      >
+        <ChevronRight className="w-6 h-6" />
+      </motion.button>
+    </>
+  )}
 
-        {/* Animated Cards */}
-        <div className="w-full h-full flex justify-center items-center relative">
-          <AnimatePresence initial={false} custom={direction}>
-            {members.map((member, index) => {
-              const position = calculatePosition(index);
-              if (position === "hidden") return null;
+  {/* Animated Cards */}
+  <div className="w-full h-full flex justify-center items-center relative">
+    <AnimatePresence initial={false} custom={direction}>
+      {members.map((member, index) => {
+        const position = calculatePosition(index);
+        if (position === "hidden") return null;
 
-              return (
-                <motion.div
-                  key={member.id}
-                  className={cn(
-                    "absolute bg-white overflow-hidden shadow-2xl cursor-pointer",
-                    cardClassName
-                  )}
-                  style={{
-                    width: cardWidth,
-                    height: cardHeight,
-                    borderRadius: cardRadius,
-                    top: "50%",
-                    left: "50%",
-                    marginLeft: -cardWidth / 2,
-                    marginTop: -cardHeight / 2,
-                  }}
-                  initial={getVariantStyles("hidden")}
-                  animate={getVariantStyles(position)}
-                  exit={getVariantStyles("hidden")}
-                  onClick={() => onCardClick?.(member, index)}
-                >
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                  {infoPosition === "overlay" && (
-                    <div
-                      className="absolute bottom-0 left-0 right-0 p-4 text-center"
-                      style={{
-                        background:
-                          infoBackground ||
-                          "linear-gradient(transparent, rgba(0,0,0,0.8))",
-                        color: infoTextColor,
-                      }}
-                    >
-                      <h3 className="text-lg font-bold">{member.name}</h3>
-                      <p className="text-sm opacity-90">{member.role}</p>
-                    </div>
-                  )}
-                </motion.div>
-              );
-            })}
-          </AnimatePresence>
-        </div>
-      </div>
+        return (
+          <motion.div
+            key={member.id}
+            className={cn(
+              "absolute bg-white overflow-hidden shadow-2xl cursor-pointer",
+              "transition-transform duration-300", // smoother resizing
+              "md:scale-100 scale-90", // slightly smaller on mobile
+              cardClassName
+            )}
+            style={{
+              width: cardWidth,
+              height: cardHeight,
+              borderRadius: cardRadius,
+              top: "50%",
+              left: "50%",
+              marginLeft: -cardWidth / 2,
+              marginTop: -cardHeight / 2,
+            }}
+            initial={getVariantStyles("hidden")}
+            animate={getVariantStyles(position)}
+            exit={getVariantStyles("hidden")}
+            onClick={() => onCardClick?.(member, index)}
+          >
+            <img
+              src={member.image}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+
+            {infoPosition === "overlay" && (
+              <div
+                className="absolute bottom-0 left-0 right-0 p-4 text-center"
+                style={{
+                  background:
+                    infoBackground ||
+                    "linear-gradient(transparent, rgba(0,0,0,0.8))",
+                  color: infoTextColor,
+                }}
+              >
+                <h3 className="text-xl font-[400]">{member.name}</h3>
+                <p className="text-sm opacity-90">{member.role}</p>
+              </div>
+            )}
+          </motion.div>
+        );
+      })}
+    </AnimatePresence>
+  </div>
+</div>
+
 
       {/* Bottom Info */}
       {infoPosition === "bottom" && members[currentIndex] && (
@@ -339,7 +343,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
           className="text-center mt-10"
         >
           <h2
-            className="text-4xl font-bold mb-3 relative inline-block"
+            className="text-4xl font-[500] mb-3 relative inline-block"
             style={{ color: infoTextColor }}
           >
             {members[currentIndex].name}
@@ -349,7 +353,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
             /> */}
           </h2>
           <p
-            className="text-xl font-medium opacity-80 uppercase tracking-wider"
+            className="text-xl font-[300] opacity-80 uppercase tracking-wider"
             style={{ color: infoTextColor }}
           >
             {members[currentIndex].role}
