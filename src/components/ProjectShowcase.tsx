@@ -115,7 +115,7 @@ export function ProjectShowcase() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="h-screen relative overflow-hidden bg-black will-change-transform">
+    <section id="work" ref={sectionRef} className="h-screen relative overflow-hidden bg-black will-change-transform">
       <div className="absolute top-20 left-4 md:left-8 lg:left-16 z-20 px-4">
         <span className="text-sm tracking-[0.3em] text-gray-500 uppercase">Our Work</span>
         <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mt-2">
@@ -128,7 +128,7 @@ export function ProjectShowcase() {
   style={{ paddingTop: '200px', transform: 'translate3d(0,0,0)' }}
 >
   {projects.slice(0, 5).map((project, index) => (   // 👈 limit to 6 projects
-    <Link key={index} to={`/project/${project.slug}`} className="will-change-transform">
+    <Link key={index} to={`/project/${project.slug}`} state={{ from: 'home' }} className="will-change-transform">
       <motion.div
         className="project-card flex-shrink-0 w-[85vw] sm:w-[70vw] md:w-[35vw] h-[350px] md:h-[350px] group cursor-pointer relative"
         whileHover={{ scale: 1.02 }}
